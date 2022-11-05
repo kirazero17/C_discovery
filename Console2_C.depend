@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1667581988 source:d:\progdocs\programming\cpp\console2_c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<math.h>
+	<string.h>
+
