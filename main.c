@@ -4,6 +4,7 @@
 #include <math.h>
 #include <string.h>
 
+//int to bool
 const char* toBool(int a)
 {
     if (a == 0)
@@ -13,6 +14,7 @@ const char* toBool(int a)
     return "Invalid Boolean";
 }
 
+//2nd degree equation with float
 float ptb2 (float a, float b, float c)
 {
     float dlt = b*b - 4*a*c;
@@ -33,6 +35,7 @@ float ptb2 (float a, float b, float c)
     return 1;
 }
 
+//finding factors with loops and array
 void factor (int n)
 {
     int i = 2;
@@ -59,6 +62,7 @@ void factor (int n)
     printf("%d\n", arr[c-1]);
 }
 
+//summing with pointers
 int sumptr(int a, int b)
 {
     int *p1 = &a;
@@ -69,6 +73,7 @@ int sumptr(int a, int b)
     return s;
 }
 
+// print values and pointers
 void ptrnrfc()
 {
     int c = 3;
@@ -77,6 +82,7 @@ void ptrnrfc()
     *p = NULL;
 }
 
+//swapping procedure with pointer
 void swapptr(int *a, int *b)
 {
     int tmp = *a;
@@ -84,6 +90,7 @@ void swapptr(int *a, int *b)
     *b = tmp;
 }
 
+//array sum with pointer
 int arrsum(int arr[], int sz)
 {
     int *ptr;
@@ -124,6 +131,7 @@ void notmain2()
     printf("%d", arrsum(arr, 5));
 }
 
+//Dynamically allocated string
 int notmain3()
 {
     char *str = NULL;
