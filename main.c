@@ -3,6 +3,7 @@
 #include <conio.h>
 #include <math.h>
 #include <string.h>
+#include "dynastring.h"
 
 //int to bool
 const char* toBool(int a)
@@ -149,9 +150,9 @@ int notmain3()
     printf("Enter the string here: ");
     fgets(str, l, stdin);
     strtok(str, "\n");
+    l = 0;
     //fine until here
     char *p = str;
-    l = 0;
     while (*p != NULL)
     {
         p++;
@@ -164,12 +165,21 @@ int notmain3()
     return 0;
 }
 
+int notmain4()
+{
+    String s1;
+    s1 = GetStr(s1, 12);
+    print(s1);
+    destroy(s1);
+    return 0;
+}
+
 int main()
 {
     notmain1();
     notmain2();
-    notmain3();
     printf("\n");
     system("PAUSE");
+    notmain4();
     return 0;
 }
