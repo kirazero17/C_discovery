@@ -9,41 +9,59 @@ struct dstrings {
 };
 typedef struct dstrings String;
 
-String GetStr(String dynammic_string, int length)
+String* NewString()
 {
-    dynammic_string.str = (char*)malloc(length * sizeof(char));
-    if (dynammic_string.str == NULL)
+    String *s = malloc(sizeof(String));
+    if (s == NULL)
+        return NULL;
+    s->str = NULL;
+    return s;
+}
+
+String* SetStr(char* StringValue)
+{
+    String *dyns = NewString();
+    dyns->str = StringValue;
+    return dyns;
+}
+
+String* GetStr(int length)
+{
+    String *strborn = NewString();
+    strborn->str = (char*)malloc(length * sizeof(char));
+    if (strborn->str == NULL)
     {
         printf("Malloc failed ! Aborted !\n");
-        return dynammic_string;
+        return strborn;
     }
     //get input
-    fgets(dynammic_string.str, length, stdin);
-    if (dynammic_string.str[0] == '\n')
-        dynammic_string.str = " ";
+    fgets(strborn->str, length, stdin);
+    if (strborn->str[0] == '\n')
+        strborn->str = " ";
 
-    strtok(dynammic_string.str, "\n");
+    strtok(strborn->str, "\n");
     length = 0;
     //fine until here
-    char *p = dynammic_string.str;
+    char *p = strborn->str;
     while (*p != NULL)
     {
         p++;
         length++;
     }
     //realloc the string and return it
-    dynammic_string.str = realloc(dynammic_string.str, length * sizeof(char));
-    return dynammic_string;
+    strborn->str = realloc(strborn->str, length * sizeof(char));
+    return strborn;
 }
 
-void print(String dynammic_string)
+void print(String dynamic_string)
 {
-    printf(dynammic_string.str);
+    printf(dynamic_string.str);
 }
 
-void destroy(String dynammic_string)
+void destroy(String** dynamic_string)
 {
-    free(dynammic_string.str);
+    free(*dynamic_string);
+    *dynamic_string = NULL;
 }
 
 #endif // DYNASTRING_H

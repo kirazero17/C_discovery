@@ -167,19 +167,25 @@ int notmain3()
 
 int notmain4()
 {
-    String s1;
-    s1 = GetStr(s1, 12);
-    print(s1);
-    destroy(s1);
+    String* s1;
+    s1 = GetStr(12);
+    print(*s1);
+    printf("\n");
+    String* s2;
+    s2 = SetStr("Okay ! New teeth !");
+    print(*s2);
+    printf("\n");
+    String* s3;
+    s3 = SetStr("Lol again.\n");
+    print(*s3);
+    destroy(&s3);
+    destroy(&s2);
+    destroy(&s1);
     return 0;
 }
 
 int main()
 {
-    notmain1();
-    notmain2();
-    printf("\n");
-    system("PAUSE");
     notmain4();
     return 0;
 }
